@@ -25,12 +25,15 @@ class Character(db.Model):
     name = db.Column(db.String(250))
     img_url = db.Column(db.String(250))
     description = db.Column(db.Text)
+    birth_year = db.Column(db.Float)
+    species = db.Column(db.String(250))
+    height = db.Column(db.Integer)
+    mass = db.Column(db.Integer)
     gender = db.Column(db.String(250))
+    hair_color = db.Column(db.String(250))
     skin_color = db.Column(db.String(250))
     eye_color = db.Column(db.String(250))
-    hair_color = db.Column(db.String(250))
-    height = db.Column(db.Float)
-    birth_year = db.Column(db.Integer)
+    homeworld = db.Column(db.String(250))
 
     def __repr__(self):
         return '<Character %r>' % self.id
@@ -41,12 +44,15 @@ class Character(db.Model):
             "name": self.name,
             "img_url": self.img_url,
             "description": self.description,
+            "birth_year": self.birth_year,
+            "species": self.species,
+            "height": self.height,
+            "mass": self.mass,
             "gender": self.gender,
+            "hair_color": self.hair_color,
             "skin_color": self.skin_color,
             "eye_color": self.eye_color,
-            "hair_color": self.hair_color,
-            "height": self.height,
-            "birth_year": self.birth_year
+            "homeworld": self.homeworld
         }
 
 class Planet(db.Model):
@@ -54,12 +60,14 @@ class Planet(db.Model):
     name = db.Column(db.String(250))
     img_url = db.Column(db.String(250))
     description = db.Column(db.Text)
-    population = db.Column(db.Integer)
-    terrain = db.Column(db.String(250))
-    climate = db.Column(db.String(250))
-    gravity = db.Column(db.String(250))
-    orbital_period = db.Column(db.Integer)
+    population = db.Column(db.BigInteger)
     rotation_period = db.Column(db.Integer)
+    orbital_period = db.Column(db.Integer)
+    diameter = db.Column(db.Integer)
+    gravity = db.Column(db.String(250))
+    terrain = db.Column(db.String(250))
+    surface_water = db.Column(db.Integer)
+    climate = db.Column(db.String(250))
 
     def __repr__(self):
         return '<Planet %r>' % self.id
@@ -71,11 +79,13 @@ class Planet(db.Model):
             "img_url": self.img_url,
             "description": self.description,
             "population": self.population,
+            "rotation_period": self.rotation_period,
+            "orbital_period": self.orbital_period,
+            "diameter" : self.diameter,
             "terrain": self.terrain,
             "climate": self.climate,
-            "gravity": self.gravity,
-            "orbital_period": self.orbital_period,
-            "rotation_period": self.rotation_period
+            "surface_water": self.surface_water,
+            "gravity": self.gravity   
         }
 
 
